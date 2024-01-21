@@ -35,7 +35,7 @@ const CHART_COLORS = {
 
 const getDataRevenue = async () => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
   const result = await axiosInstance.post("/revenue/revenue");
   return result.data;
@@ -174,8 +174,8 @@ $(function () {
     function (ev, picker, start, end, label) {
       $(this).val(
         picker.startDate.format("MM/DD/YYYY") +
-          " - " +
-          picker.endDate.format("MM/DD/YYYY")
+        " - " +
+        picker.endDate.format("MM/DD/YYYY")
       );
       from = start.format("YYYY-MM-DD");
       to = end.format("YYYY-MM-DD");
@@ -238,7 +238,7 @@ $(function () {
 
 const getDataList1 = async (data_from_to) => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
 
   const result = await axiosInstance.post("/revenue/revenue", data_from_to);
@@ -253,7 +253,7 @@ function removeData(chart) {
 // ============= list =====================
 const getDataList = async (id) => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
   const result = await axiosInstance.get(`/revenue/invoice/${id}`);
   return result.data;
@@ -261,7 +261,7 @@ const getDataList = async (id) => {
 
 const getOrderList = async (data) => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
   console.log(data);
   const result = await axiosInstance.post(`/revenue/order-list`, data);
@@ -380,11 +380,11 @@ function upDateTable(data) {
   data.forEach((element) => {
     element.forEach((item) => {
       const tr = document.createElement("tr");
-      
+
       const td_Code = document.createElement("td");
       const a = document.createElement("a");
       const p = document.createElement("p");
-      
+
       const td_Total = document.createElement('td');
       const td_Customer = document.createElement('td');
       const td_Methods = document.createElement('td');
@@ -410,13 +410,13 @@ function upDateTable(data) {
       td_Cash.textContent = item.payment_method == 'Paypal' ? '-' : `${item.money_given}$`
       td_Due.textContent = item.payment_method == 'Paypal' ? '-' : `${item.money_back}$`
       td_Created_at.textContent = item.created_at.split('T')[0]
-      
+
       a.append(p);
       td_Code.append(a);
-      
-      a_Created_by.setAttribute('href',`contacts/staffs/${item.created_by._id}`)
+
+      a_Created_by.setAttribute('href', `contacts/staffs/${item.created_by._id}`)
       span_Created_by.textContent = item.created_by.full_name
-      
+
       a_Created_by.append(span_Created_by)
       td_Created_by.append(a_Created_by)
 

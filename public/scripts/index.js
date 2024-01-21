@@ -20,7 +20,7 @@
 //       },
 //     });
 
-//     // Thực hiện yêu cầu POST đến server http://localhost:3000
+//     // Thực hiện yêu cầu POST đến server https://pops.onrender.com
 //     await axiosInstance.post("/dashboards", {
 //       // Dữ liệu cần gửi
 //       accessToken: accessToken,

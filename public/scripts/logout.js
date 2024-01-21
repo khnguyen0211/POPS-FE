@@ -1,12 +1,12 @@
 const logout = document.querySelector("#logout");
-const URL = "http://localhost:4000";
+const URL = "https://pops-backend.onrender.com";
 
 logout.addEventListener("click", async (e) => {
   // e.preventDefault();
 
   localStorage.setItem("accessToken", "");
   localStorage.setItem("refreshToken", "");
-  
+
   const refreshToken = localStorage.getItem("refreshToken");
   const accessToken = localStorage.getItem("accessToken");
 

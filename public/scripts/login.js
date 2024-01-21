@@ -1,6 +1,6 @@
 const form = document.querySelector(".form");
-const URL = "http://localhost:4000";
-const API = "http://localhost:3000";
+const URL = "https://pops-backend.onrender.com";
+const API = "https://pops.onrender.com";
 let accessToken = "";
 let refreshToken = "";
 
@@ -51,7 +51,7 @@ form.addEventListener("submit", async (e) => {
       });
       const profile = await axiosInstance.post("users/my-profile");
       idChat = profile.data._id;
-      
+
       const axiosInstanceAPI = axios.create({
         baseURL: API,
         headers: {
@@ -70,7 +70,7 @@ form.addEventListener("submit", async (e) => {
           window.location.href = "/dashboards";
           // window.location.href = `/chat/${idChat}`;
         });
-        // window.location.href = "/dashboards";
+      // window.location.href = "/dashboards";
     }
   } catch (error) {
     Swal.fire({
@@ -105,7 +105,7 @@ if (querystring) {
     },
   });
 
-  // Thực hiện yêu cầu POST đến server http://localhost:3000
+  // Thực hiện yêu cầu POST đến server https://pops.onrender.com
   const result = axiosInstance.post("/dashboards", {
     // Dữ liệu cần gửi
     accessToken: access_token,
@@ -126,7 +126,7 @@ const base_url = "https://accounts.google.com/o/oauth2/v2/auth";
 const query = {
   client_id:
     "851921911617-n07b8va3mj79k1i4du5eo9t8nkt1mgcp.apps.googleusercontent.com",
-  redirect_uri: "http://localhost:4000/users/oauth/google",
+  redirect_uri: "https://pops-backend.onrender.com/users/oauth/google",
 
   response_type: "code",
   scope: [

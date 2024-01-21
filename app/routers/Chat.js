@@ -11,12 +11,12 @@ const settingRouter = require('../controllers/SettingController');
 router.get(
   "/chat",
   async (req, res, next) => {
-    const accessToken  = req.data;
+    const accessToken = req.data;
     console.log(accessToken)
     let user_id = req.query.idChat;
     console.log(user_id)
     const axiosInstance = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: "https://pops-backend.onrender.com",
       headers: {
         Authorization: `${accessToken}`,
       },

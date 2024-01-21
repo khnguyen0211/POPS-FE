@@ -18,7 +18,7 @@ voucher.addEventListener("submit", async (e) => {
   // console.log(voucherValue);
   try {
     const axiosInstance = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: "https://pops-backend.onrender.com",
       //
     });
     const response = await axiosInstance.post(
@@ -405,7 +405,7 @@ async function searchCustomer(event) {
     div.style.display = "block";
     try {
       const axiosInstance = axios.create({
-        baseURL: "http://localhost:4000",
+        baseURL: "https://pops-backend.onrender.com",
       });
       const response = await axiosInstance.post("/search/customer-searching", {
         text: customer,
@@ -488,7 +488,7 @@ async function searchCustomer(event) {
 //     div.style.display = "block";
 //     try {
 //       const axiosInstance = axios.create({
-//         baseURL: "http://localhost:4000",
+//         baseURL: "https://pops-backend.onrender.com",
 //       });
 //       const response = await axiosInstance.post("/search/customer-searching", {
 //         text: customer,
@@ -577,7 +577,7 @@ addPament.addEventListener("click", async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
       const axiosInstance = axios.create({
-        baseURL: "http://localhost:4000",
+        baseURL: "https://pops-backend.onrender.com",
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

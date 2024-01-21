@@ -3,7 +3,7 @@ const from_id = formSpan.textContent.trim();
 
 const toSpan = document.getElementById("to_id");
 const to_id = toSpan.textContent.trim();
-const socket = new io("http://localhost:4000");
+const socket = new io("https://pops-backend.onrender.com");
 const sendButton = document.getElementById("button");
 const callVideoButton = document.getElementById("from_call_start");
 const stopVideoButton = document.getElementById("from_call_stop");

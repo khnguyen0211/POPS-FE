@@ -43,7 +43,7 @@ for (const trash of trashIcon) {
       if (result.isConfirmed) {
         try {
           const axiosInstance = await axios.create({
-            baseURL: "http://localhost:4000",
+            baseURL: "https://pops-backend.onrender.com",
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
@@ -57,9 +57,9 @@ for (const trash of trashIcon) {
                 showConfirmButton: false,
                 timer: 1500,
               });
-              setTimeout(()=>{
+              setTimeout(() => {
                 window.location.href = "/products";
-              },1600)
+              }, 1600)
             })
             .catch((error) => {
               Swal.fire({

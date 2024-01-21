@@ -64,7 +64,7 @@ function route(app) {
     async (req, res, next) => {
       try {
         const axiosInstance = await axios.create({
-          baseURL: `http://${process.env.HOST_BE}:${process.env.API}`,
+          baseURL: `https://pops-backend.onrender.com`,
         });
         axiosInstance.post("/revenue/order-list").then(function (response) {
           const data = [...response.data];
@@ -93,7 +93,7 @@ function route(app) {
     async (req, res, next) => {
       try {
         const axiosInstance = await axios.create({
-          baseURL: `http://${process.env.HOST_BE}:${process.env.API}`,
+          baseURL: `https://pops-backend.onrender.com`,
           headers: {
             Authorization: accessToken,
           },
@@ -114,7 +114,7 @@ function route(app) {
     async (req, res, next) => {
       try {
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/products/product-list`,
+          `https://pops-backend.onrender.com/products/product-list`,
           {
             headers: {
               Authorization: `${accessToken}`,
@@ -144,7 +144,7 @@ function route(app) {
       // console.log(role)
       try {
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/managers/staff-list`,
+          `https://pops-backend.onrender.com/managers/staff-list`,
           {
             headers: {
               Authorization: accessToken,
@@ -184,7 +184,7 @@ function route(app) {
       try {
         // Thực hiện cuộc gọi API bằng Axios ở đây.
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/managers/staff-info/${staffsId}`,
+          `https://pops-backend.onrender.com/managers/staff-info/${staffsId}`,
           {
             headers: {
               Authorization: `${accessToken}`,
@@ -209,7 +209,7 @@ function route(app) {
       try {
         // Thực hiện cuộc gọi API bằng Axios ở đây.
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/products/product-list`,
+          `https://pops-backend.onrender.com/products/product-list`,
           {
             headers: {
               Authorization: `${accessToken}`,
@@ -241,7 +241,7 @@ function route(app) {
         // console.log(typeof(productId))
 
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/products/product-detail/${productId}`,
+          `https://pops-backend.onrender.com/products/product-detail/${productId}`,
           {
             headers: {
               Authorization: `${accessToken}`,
@@ -267,7 +267,7 @@ function route(app) {
       try {
         // Thực hiện cuộc gọi API bằng Axios ở đây.
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/customers/customer-list`
+          `https://pops-backend.onrender.com/customers/customer-list`
         );
         const data = [...apiResponse.data];
         const newObject = Object.assign(data, avatar);
@@ -297,7 +297,7 @@ function route(app) {
         // console.log(typeof(productId))
 
         const apiResponse = await axios.get(
-          `http://${process.env.HOST_BE}:${process.env.API}/customers/detail/${customerId}`,
+          `https://pops-backend.onrender.com/customers/detail/${customerId}`,
           {
             headers: {
               Authorization: `${accessToken}`,
@@ -330,7 +330,7 @@ function route(app) {
       try {
         const data = { verify_token: verifyEmail };
         const axiosInstance = axios.create({
-          baseURL: `http://${process.env.HOST_BE}:${process.env.API}`,
+          baseURL: `https://pops-backend.onrender.com`,
         });
         const response = await axiosInstance.post(
           "/staffs/check-verify-token",

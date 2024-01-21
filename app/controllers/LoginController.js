@@ -10,7 +10,7 @@ class LoginController {
         console.log(access_token)
         console.log(refresh_token)
         console.log(avatar)
-        return res.redirect('http://localhost:3000/sales')
+        return res.redirect('https://pops.onrender.com/sales')
     }
 }
 

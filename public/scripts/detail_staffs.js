@@ -12,7 +12,7 @@ let data_days = [];
 let data_revenues = [];
 const getDataStaffInfo = async () => {
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
   const result = await axiosInstance.get(`/managers/staff-info/${id}`);
   return result.data;
@@ -83,7 +83,7 @@ getDataStaffInfo().then((data) => {
   };
   const new_chart = new Chart(chartStaff2D, config);
   const table = document.querySelector("table");
-  
+
   //   console.log(table);
   console.log(data.orderList);
   // const customer_name = document.getElementById("customer_name");

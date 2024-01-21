@@ -6,9 +6,9 @@ form.addEventListener("submit", async (e) => {
 
   e.preventDefault();
   try {
-    
+
     const axiosInstance = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: "https://pops-backend.onrender.com",
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
@@ -24,8 +24,8 @@ form.addEventListener("submit", async (e) => {
       text: `${response.data.message}`,
       timer: 1500,
     });
-    setTimeout(()=>{
-        window.location.href = "/logout";
+    setTimeout(() => {
+      window.location.href = "/logout";
     }, 1700)
   } catch (error) {
     console.log(error);

@@ -1,6 +1,6 @@
 const form = document.querySelector(".form");
-const URL = "http://localhost:4000";
-const API = "http://localhost:3000";
+const URL = "https://pops-backend.onrender.com";
+const API = "https://pops.onrender.com";
 let accessToken = "";
 let refreshToken = "";
 
@@ -150,7 +150,7 @@ const base_url = "https://accounts.google.com/o/oauth2/v2/auth";
 const query = {
   client_id:
     "851921911617-n07b8va3mj79k1i4du5eo9t8nkt1mgcp.apps.googleusercontent.com",
-  redirect_uri: "http://localhost:4000/users/oauth/google",
+  redirect_uri: "https://pops-backend.onrender.com/users/oauth/google",
 
   response_type: "code",
   scope: [

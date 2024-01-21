@@ -51,7 +51,7 @@ async function performAnimationAndHide1() {
   });
 
   // Sau khi animation hoàn thành, chạy câu lệnh `addProducts.style.display`
-  
+
   addProducts.style.display = "none";
   modalContentProduct.style.animation = "appear-modal 1s ease";
 }
@@ -93,7 +93,7 @@ async function callQR() {
       const aQR = document.getElementById("aQRcode");
       const accessToken = localStorage.getItem("accessToken");
       const axiosInstance = axios.create({
-        baseURL: "http://localhost:4000",
+        baseURL: "https://pops-backend.onrender.com",
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

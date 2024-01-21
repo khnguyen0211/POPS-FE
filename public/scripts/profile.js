@@ -50,7 +50,7 @@ async function changeImages() {
           try {
             const accessToken = localStorage.getItem("accessToken");
             const axiosInstance = axios.create({
-              baseURL: "http://localhost:4000",
+              baseURL: "https://pops-backend.onrender.com",
               headers: {
                 "Content-Type": "multipart/form-data",
                 Authorization: `Bearer ${accessToken}`,
@@ -59,8 +59,8 @@ async function changeImages() {
             await axiosInstance
               .post("/users/upload-avatar", {
                 image: file,
-              }).then( async (response) => {
-                await axios.post("http://localhost:3000/upload-avatar", {
+              }).then(async (response) => {
+                await axios.post("https://pops.onrender.com/upload-avatar", {
                   avatar: response.data.avatar_url,
                 }).then((response) => {
                   Swal.fire({
@@ -69,7 +69,7 @@ async function changeImages() {
                     icon: "success",
                   }).then((result) => {
                     window.location.reload()
-                })
+                  })
                 });
               });
           } catch (error) {

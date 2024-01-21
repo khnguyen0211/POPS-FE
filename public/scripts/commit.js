@@ -2,7 +2,7 @@
 //   console.log(typeof(password.value))
 //   e.preventDefault();
 // try {
-//   const res = await fetch(`http://localhost:4000/users/login`, {
+//   const res = await fetch(`https://pops-backend.onrender.com/users/login`, {
 //     // mode: 'no-cors',
 //     method: "POST",
 //     headers: { "Content-Type": "application/json" },
@@ -102,7 +102,7 @@
 // Hàm refresh token
 // async function refreshToken() {
 //   // Gửi yêu cầu POST đến API refresh token
-//   const response = await Axios.post(`http://localhost:4000/users/refresh-token`, {
+//   const response = await Axios.post(`https://pops-backend.onrender.com/users/refresh-token`, {
 //     refreshToken,
 //   });
 

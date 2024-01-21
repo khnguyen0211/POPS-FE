@@ -38,7 +38,7 @@ function sendImage(file) {
       const formData = new FormData();
       formData.append("image", file);
       const axiosInstance = axios.create({
-        baseURL: "http://localhost:4000",
+        baseURL: "https://pops-backend.onrender.com",
       });
       axiosInstance
         .post("/products/upload-product-image", formData)
@@ -92,7 +92,7 @@ addProduct.addEventListener("submit", (e) => {
   };
 
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://pops-backend.onrender.com",
   });
   axiosInstance
     .patch("/products/add-product", data)

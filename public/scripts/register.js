@@ -45,7 +45,7 @@ window.alert = function (message) {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   try {
-    const res = await fetch(`http://localhost:2002/register`, {
+    const res = await fetch(`https://pops-backend.onrender.com/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

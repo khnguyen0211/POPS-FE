@@ -7,7 +7,7 @@ router.get('/payments/paypal-success/:order_id', async (req, res, next) => {
     const { order_id } = req.params
     const data = { order_id: order_id };
     const axiosInstance = axios.create({
-        baseURL: `http://localhost:4000`,
+        baseURL: `https://pops-backend.onrender.com`,
     });
     const response = await axiosInstance.post(
         "/payments/paypal-success",

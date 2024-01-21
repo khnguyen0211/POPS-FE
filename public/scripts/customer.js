@@ -90,86 +90,86 @@ async function searchProduct(event) {
   const listNews = document.querySelector(".list-new");
   const showProduct = document.querySelector(".show-product");
   console.log(product);
-  if (product === '' && listNews){
+  if (product === '' && listNews) {
     console.log("null")
     listNews.remove();
     listCard.style.display = 'grid';
   }
-    if (event.key === "Enter") {
-      const data = {
-        text: product,
-      };
-      try {
-        const axiosInstance = await axios.create({
-          baseURL: "http://localhost:4000",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        axiosInstance
-          .post("/search/product-searching", data)
-          .then(function (response) {
-            console.log(response);
-            const values = Object.values(response.data);
-            console.log(values.length);
-            if (values.length == 0) {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Product Not Found !",
-              });
-            } else {
-              if (listNews) {
-                listNews.remove();
-              }
-              const ul = document.createElement("ul");
-              ul.classList.add("list-new");
-              showProduct.appendChild(ul);
-              listCard.style.display = "none";
-              response.data.forEach((item) => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                const p = document.createElement("p");
-                const img = document.createElement("img");
-                const h4 = document.createElement("h4");
-                const strong = document.createElement("strong");
-                const br = document.createElement("br");
-                const span = document.createElement("span");
-
-                li.classList.add("list-card-item");
-
-                a.classList.add(`${item._id}`);
-                a.id = "add_product";
-
-                p.innerHTML = item._id;
-                p.id = "product_id";
-
-                img.src = item.image_urls[0];
-
-                h4.id = "product_name";
-                h4.innerHTML = item.product_name;
-
-                strong.id = "retail_price";
-                strong.innerHTML = item.retail_price;
-
-                span.id = item.quantity.toLocaleString();
-                span.innerHTML = `${item.quantity}available`;
-
-                a.append(p, img, h4, strong, br, span);
-                li.append(a);
-                ul.append(li);
-              });
-              clickProduct();
+  if (event.key === "Enter") {
+    const data = {
+      text: product,
+    };
+    try {
+      const axiosInstance = await axios.create({
+        baseURL: "https://pops-backend.onrender.com",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      axiosInstance
+        .post("/search/product-searching", data)
+        .then(function (response) {
+          console.log(response);
+          const values = Object.values(response.data);
+          console.log(values.length);
+          if (values.length == 0) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Product Not Found !",
+            });
+          } else {
+            if (listNews) {
+              listNews.remove();
             }
-          });
-      } catch (error) {
-        console.log(error);
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          footer: '<a href="#">Why do I have this issue?</a>',
+            const ul = document.createElement("ul");
+            ul.classList.add("list-new");
+            showProduct.appendChild(ul);
+            listCard.style.display = "none";
+            response.data.forEach((item) => {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              const p = document.createElement("p");
+              const img = document.createElement("img");
+              const h4 = document.createElement("h4");
+              const strong = document.createElement("strong");
+              const br = document.createElement("br");
+              const span = document.createElement("span");
+
+              li.classList.add("list-card-item");
+
+              a.classList.add(`${item._id}`);
+              a.id = "add_product";
+
+              p.innerHTML = item._id;
+              p.id = "product_id";
+
+              img.src = item.image_urls[0];
+
+              h4.id = "product_name";
+              h4.innerHTML = item.product_name;
+
+              strong.id = "retail_price";
+              strong.innerHTML = item.retail_price;
+
+              span.id = item.quantity.toLocaleString();
+              span.innerHTML = `${item.quantity}available`;
+
+              a.append(p, img, h4, strong, br, span);
+              li.append(a);
+              ul.append(li);
+            });
+            clickProduct();
+          }
         });
-      }
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     }
+  }
 }
