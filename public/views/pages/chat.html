@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- <script src="./index.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>  
+    
+
+    <title>Document</title>
+  </head>
+  <body>
+    <section style="background-color: #cdc4f9" class="container-media">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" id="chat3" style="border-radius: 15px">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0 list-user">
+                    <div class="p-3">
+                      <div class="input-group rounded mb-3">
+                        <input
+                          type="search"
+                          class="form-control rounded"
+                          placeholder="Search"
+                          aria-label="Search"
+                          aria-describedby="search-addon"
+                        />
+                        <span
+                          class="input-group-text border-0"
+                          id="search-addon"
+                        >
+                          <i class="fas fa-search"></i>
+                        </span>
+                      </div>
+
+                      <div
+                        data-mdb-perfect-scrollbar="true"
+                        style="
+                          position: relative;
+                          height: 400px;
+                          overflow-y: scroll;
+                        "
+                      >
+                        <ul class="list-unstyled mb-0" id="users_list">
+                          <li class="p-2 border-bottom">
+                            <a href="#!" class="d-flex justify-content-between">
+                              <div class="d-flex flex-row">
+                                <div>
+                                  <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                    alt="avatar"
+                                    class="d-flex align-self-center me-3"
+                                    width="60"
+                                  />
+                                  <!-- <span
+                                    class="badge bg-succes  s badge-dot"
+                                  ></span> -->
+                                </div>
+                                <div class="pt-1">
+                                  <p
+                                    class="fw-bold mb-0 d-flex justify-content-between"
+                                  >
+                                    Marie Horwitz
+                                  </p>
+                                  <!-- <p class="small text-muted">
+                                    Hello, Are you there?
+                                  </p> -->
+                                </div>
+                              </div>
+                              <!-- <div class="pt-1">
+                                <p class="small text-muted mb-1">Just now</p>
+                                <span
+                                  class="badge bg-danger rounded-pill float-end"
+                                  >3</span
+                                >
+                              </div> -->
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="emoji" id="emoji_select"></div>
+                    </div>
+                  </div>
+
+                  <!-- //================================== -->
+                  <div class="col-md-6 col-lg-7 col-xl-8">
+                    <form id="chat-form">
+                      <div
+                        class="pt-3 pe-3 chat-messages"
+                        data-mdb-perfect-scrollbar="true"
+                        style="
+                          position: relative;
+                          height: 400px;
+                          overflow-y: scroll;
+                        "
+                      >
+                        <div class="d-flex flex-row justify-content-start">
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                            alt="avatar 1"
+                            style="width: 45px; height: 100%"
+                          />
+                          <div>
+                            <p
+                              class="small p-2 ms-3 mb-1 rounded-3"
+                              style="background-color: #f5f6f7"
+                            >
+                              Hi everyone!
+                            </p>
+                            <p
+                              class="small ms-3 mb-3 rounded-3 text-muted float-end"
+                            >
+                              12:00 PM | Aug 13
+                            </p>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div
+                        class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2"
+                      >
+                        <img
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                          alt="avatar 3"
+                          style="width: 40px; height: 100%"
+                        />
+                        <input
+                          id="msg"
+                          type="text"
+                          class="form-control form-control-lg me-3"
+                          placeholder="Enter message"
+                          autocomplete="off"
+                        />
+                        <a class="ms-1 text-muted" 
+                          ><i class="fa-solid fa-microphone" id="mic"></i
+                        ></a>
+                        <a class="ms-3 text-muted" 
+                          ><i class="fas fa-smile" id="emoji"></i
+                        ></a>
+                       
+                        <button class="ms-3 btn btn-outline-info" href="#!">
+                          <i class="fas fa-paper-plane btnChat"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+    integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/main.js"></script>
+  <script src="./js/emoji.js"></script>
+  <script src="./js/assistant.js"></script>
+</html>

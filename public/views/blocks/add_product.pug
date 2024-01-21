@@ -1,0 +1,57 @@
+.add-products
+    .modal
+        .modal-content-product 
+            .modal-head 
+                h3 Add New Product
+                i.fa-solid.fa-x#turnOffAddProduct
+            //- .line
+            .modal-body 
+                form.form()#add_product
+                    .form-group
+                        label(for='product_name') Name
+                        input.form-control(type='text' id='product_name' name='product_name' placeholder='Name' required )
+                    .form-group 
+                        label(for='description') Description
+                        textarea(name="description" id="description" cols="30" rows="3" required ).form-textarea
+                    .brand-category 
+                        .form-group
+                            label(for='brand') Brand
+                            select.form-control(id="brand" name="brand" placeholder='Brand' required )
+                                optgroup(label='Choose one')
+                                    option(value='0') iPhone
+                                    option(value='1') Oppo
+                                    option(value='2') Samsung
+                                    option(value='3') XiaoMi
+                                    option(value='4') Honor
+                                    option(value='5') Realme
+                                    option(value='6') Vivo
+                                    option(value='7') Asus
+                                    option(value='8') Nokia
+                        .form-group
+                            label(for='category') Category
+                            select.form-control(id="category" name="category" placeholder='Category' required )
+                                optgroup(label='Choose one')
+                                    option(value='0') Phone
+                                    option(value='1') Laptop 
+                                    option(value='2') Accesssories 
+                                option(value='other') Other
+                    .brand-category
+                        .form-group
+                            label(for='import_price') Import Price
+                            input.form-control(type='number' id='import_price' name='import_price' placeholder='Import Price' min=0 required)
+                       
+                        .form-group
+                            label(for='desired_profit') Desired Profit
+                            input.form-control(type='number' id='desired_profit' name='desired_profit' placeholder='Desired Profit' min=0 required) 
+                    .brand-category
+                        .form-group
+                            label(for='barcode') Barcode
+                            input.form-control(type='number' id='barcode' name='barcode' placeholder='Barcode length is 8 numbers' min=0 pattern="^[0-9]{8}$" minlength="8" maxlength="8" required)
+                        .form-group
+                            label(for='quantity') Quantity
+                            input.form-control(type='number' id='quantity' name='quantity' placeholder='Quantity' min=0 required)
+                    .form-group 
+                        .uploadImage
+                            label(for="image-product") Click To Upload image
+                                input.avatar-upload.form-control(id ='image-product' type='file' accept='image/*' name='file_images' required)
+                    button(type='submit').btn-add-product Save

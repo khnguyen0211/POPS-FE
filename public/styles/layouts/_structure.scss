@@ -1,0 +1,14 @@
+// Trang login
+.wrappper-index{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+.container1{
+    height: calc(100vh - 7rem);
+    margin-left: 15rem;
+    background-color: $background-color;
+    overflow-y: auto;
+}

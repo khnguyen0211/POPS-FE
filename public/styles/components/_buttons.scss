@@ -1,0 +1,9 @@
+@mixin button1($width, $height, $backgroundColor){
+    display: inline-block;
+    width: $width;
+    height: $height;
+    border-radius: 8px;
+    background-color: $backgroundColor;
+    padding: 12px 15px 5px;
+    text-align: center;
+}

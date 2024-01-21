@@ -1,0 +1,23 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Payment Error'
+  -bodyClass = 'settings'
+//-   -Data = reqData
+
+block container 
+  .container1 
+      .paymnent-error
+        i.fa-solid.fa-circle-exclamation
+        h1 Payment error!
+        h2 Your payment has failed. Please complete payment!
+        a.box__button(href='javascript:history.back()') Continue
+
+block append scripts 
+  script(src="../../scripts/product.js") 
+
+    
+
+
+
+  

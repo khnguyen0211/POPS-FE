@@ -1,0 +1,41 @@
+.product
+    .product-nav 
+        ul 
+            li.item Products
+            li.item Inventory
+            li.item Category
+    .line
+    .content
+        h2 Product
+        .content-nav
+            button#addProducts Add
+            button#ButtonExport Export
+            button Action
+    .line
+    table.table#tableProduct  
+        tr
+            th Images
+            th Product Name 
+            th Brand
+            th Import Price 
+            th Retail Price
+            th Category 
+            th Quantity
+            th Action
+        each data in Data ? Data : []
+            tr
+                td 
+                    if `${data.image_urls}` == null
+                        img(src="./images/bg01.jpg" alt="" srcset="")
+                    else 
+                        img(src=`${data.image_urls}`, alt="avatar").img
+                td
+                    a(href=`/products/products-detail/?idProduct=${data._id}`)= data.product_name
+                td= data.brand
+                td= data.import_price ? `${data.import_price.toLocaleString()}$` : '***'
+                td= `${data.retail_price.toLocaleString()}$`
+                td= data.category
+                td= data.quantity
+                td#trashIcon 
+                    i.fa-solid.fa-trash.trash
+                    p(style= 'display: none')= data._id 

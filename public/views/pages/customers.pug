@@ -1,0 +1,53 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Customer'
+  -bodyClass = 'customer'
+  -Data = reqData
+
+block container 
+  .container1 
+    .product
+      .product-nav 
+        ul 
+          li.item Customer
+          li.item Customer Silver
+          li.item Customer Gold
+          li.item Customer Gold
+      .line
+      .content
+        h2 Customers
+        .content-nav
+          button Import
+          button#ButtonExport Export
+          button Action
+      .line
+      //- +toogleStatus
+      table.table.tableCustomer#tableProduct 
+        tr
+          th ID
+          th Full Name
+          //- th Email
+          th Phone Number
+          th Address
+
+        each data in Data ? Data : []
+          tr
+            td= data._id
+            td
+              a(href=`/customers/customers-detail/${data._id}`)= data.full_name
+            //- td 
+            //-   if `${data.avatar_url}` === '' 
+            //-     img(src='./images/bg01.jpg' alt="" srcset="").img.avatar
+            //-   else 
+            //-     img(src=`${data.avatar_url}`, alt="avatar").img.avatar
+            //- td
+              a(href=`/contacts/${data._id}`)= data.full_name
+            //- td= data.email
+            td= data.phone_number
+            td= data.address
+            
+
+
+block append scripts 
+  script(src="../../scripts/product.js") 

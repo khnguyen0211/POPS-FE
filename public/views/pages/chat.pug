@@ -1,0 +1,112 @@
+block vars 
+  -title = 'Chat'
+  -bodyClass = 'chat'
+  -Data = reqData
+block append head
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css' integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+  //- link(rel="stylesheet" href="../../css/style.css")
+block container
+  .container1 
+    section.container-media(style='background-color: rgb(83, 85, 97, 0.9)')
+      .container.py-5
+        .row
+          .col-md-12
+            #chat3.card(style='border-radius: 15px')
+              .card-body
+                .row
+                  .col-md-6.col-lg-5.col-xl-4.mb-4.mb-md-0.list-user
+                    .p-3
+                      .input-group.rounded.mb-3
+                        input.form-control.rounded(type='search' placeholder='Search' aria-label='Search' aria-describedby='search-addon')
+                        span#search-addon.input-group-text.border-0
+                          i.fas.fa-search
+                      div(data-mdb-perfect-scrollbar='true' style='position: relative; height: 400px; overflow-y: scroll;')
+                        ul#users_list.list-unstyled.mb-0
+                          each data in Data.users ? Data.users : []
+                            li.p-2.border-bottom
+                              span(style='display: none')#friend_id #{data._id} 
+                              a.d-flex.justify-content-between(href=`/chat/${data._id}` style='text-decoration: none; color: rgb(83, 85, 97);')
+                                .d-flex.flex-row
+                                  div
+                                    img(src=`${data.avatar_url}` alt='avatar' width='60' style='height: 3rem; width: 3rem; border-radius: 50%; object-fit: cover;').d-flex.align-self-center.me-3
+                                  .pt-1
+                                    p.fw-bold.mb-0.d-flex.justify-content-between #{data.full_name}
+                                    //- p.hello Hoạt động 15 phút trước 
+                                    div(style='display: flex')
+                                      div.status(id=`${data._id}001`, style= 'width: 10px; height: 10px; border-radius: 50%; background-color: green; margin-top: 5px; margin-right: 10px ') 
+                                      p #{data.message.length > 20 ? data.message.substring(0, 20) + '...' : data.message}
+                  .col-md-6.col-lg-7.col-xl-8
+                    div 
+                      div.d-flex.justify-content-between(style='text-decoration: none; color: rgb(83, 85, 97);')
+                        .d-flex.flex-row
+                          div
+                            img(src=`${Data.to_user.avatar_url}` alt='avatar' width='60' style='height: 3rem; width: 3rem; border-radius: 50%; object-fit: cover;').d-flex.align-self-center.me-3
+                          .pt-1
+                            p.fw-bold.mb-0.d-flex.justify-content-between #{Data.to_user.full_name}
+                            //- p.hello Hoạt động 15 phút trước 
+                            div(style='display: flex')
+                              div.status(id=`${Data.to_user._id}002`, style= 'width: 10px; height: 10px; border-radius: 50%; background-color: green; margin-top: 5px; margin-right: 10px ') 
+                              p(id=`${Data.to_user._id}-status`) ...
+                    form#chat-form
+                      .pt-3.pe-3.chat-messages#chat-form-Id(data-mdb-perfect-scrollbar='true' style=' position: relative; height: 400px; overflow-y: scroll; scroll-to: bottom;')
+                       each data in Data.conversation ? Data.conversation : []
+                        //- span #{data.content}
+                        if data.sender_id == Data.from_user._id
+                          .d-flex.flex-row.justify-content-end
+                            div
+                              p(style='text-align: right; margin-right: 10px;')
+                                span#from_fullname #{Data.from_user.full_name}
+                              div(style= 'text-align: right')
+                                p.small.p-2.ms-3.mb-1.rounded-3(style='background-color: #f5f6f7; display: inline-block; with: 100%')
+                                  span #{data.content}
+                              p.small.ms-3.mb-3.rounded-3.text-muted.float-end   
+                                span#from_time #{data.created_at}
+                            img#from_avt(src=`${Data.from_user.avatar_url}` style='height: 3rem; width: 3rem; border-radius: 50%; object-fit: cover;')
+                        else 
+                          .d-flex.flex-row.justify-content-start
+                            h3 
+                            img#to_avt(src=`${Data.to_user.avatar_url}` alt='avatar 1' style='height: 3rem; width: 3rem; border-radius: 50%; object-fit: cover;')
+                            div.d-flex.flex-column.d-inline-block
+                              p(style='text-align: left; margin-left: 20px; display: inline-block; width: auto;')
+                                span#to_fullname #{Data.to_user.full_name}
+                              div
+                                p.small.p-2.ms-3.mb-1.rounded-3(style='background-color: #f5f6f7; display: inline-block; with: 100%')
+                                  span #{data.content}
+                              p.small.ms-3.mb-3.rounded-3.text-muted.float-end(style="display: block")
+                                span#to_time #{data.created_at}
+                      span(style= 'display: none')#from_id #{Data.from_user._id} 
+                      span(style= 'display: none')#to_id #{Data.to_user._id}
+                      span(style= 'display: none')#from_peer_id ...
+                      video(style= 'background-color: red; display: none')#from_video
+                      video(style= 'background-color: red; display: none')#to_video
+                      //- span#to_peer_id ...
+                      #from_video_id(style= 'display: none')
+                        .from_video
+                          video#from_video
+                          .to_video
+                            video#to_video
+                      #emoji_select.emoji(style= "position: absolute; z-index: 2; width: 352; height: 435px; bottom: 113px; right: 122px; display: none;")
+                      .text-muted.d-flex.justify-content-start.align-items-center.pe-3.pt-3.mt-2
+                        img(src=`${Data.from_user.avatar_url}` alt='avatar 3' style='height: 35px; width: 35px; border-radius: 50%; object-fit: cover; margin-right: 10px')
+                        input#msg.form-control.form-control-lg.me-3(type='text' placeholder='Enter message' autocomplete='off' onkeydown="submitMessage(event)")
+                        a.ms-1.text-muted(style= 'cursor: pointer;')
+                          i#mic.fa-solid.fa-microphone
+                        a.ms-3.text-muted(style= 'cursor: pointer;')
+                          i#emoji.fas.fa-smile
+                        button.ms-3.btn.btn-outline-success(href='#!')
+                          i.fa-solid.fa-video#from_call_start
+                        button.ms-3.btn.btn-outline-info(href='#!')#button
+                          i.fas.fa-paper-plane.btnChat#button
+                        //- h1 #{Data.users[0].full_name}
+                          
+block append scripts 
+  script(src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous") 
+  script(src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js")
+  script(src="../../scripts/chat.js") 
+  script(src="../../scripts/assistant.js") 
+  script(src="../../scripts/emoji.js") 
+  

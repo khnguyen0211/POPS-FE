@@ -1,0 +1,76 @@
+doctype html
+html(lang="en")
+  head
+    title=title 
+    include ../blocks/head
+  body(class = bodyClass)
+    block vars 
+    -title = 'Call Video'
+    -bodyClass = 'call_video'
+    -Data = reqData
+    block container 
+      form.form(action='#' method='method')
+        .form-group
+          span.from_user FROM
+          span.from_full_name #{Data.from_user.full_name}
+          span#from_id #{Data.from_user._id} 
+          span#from_peer_id ...
+          hr
+          video#from_video
+          hr
+          video#to_video
+          hr
+          span.to_user TO
+          button#from_call_start(type='button') Call Video
+          span.to_full_name #{Data.to_user.full_name}
+          span#to_id #{Data.to_user._id}
+          span#to_peer_id ...
+          label(for='email') Enter your message 
+          input.form-control(name='message' placeholder='Message' required) 
+        button#button(type='submit' value='submit') Send Message
+
+script(src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+    integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+    crossorigin="anonymous") 
+script(src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js")
+script(src="../../scripts/chat.js") 
+//- extend ../layouts/layout
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     title=title 
+//-     include ../blocks/head
+//-   body(class = bodyClass)
+//-     block vars 
+//-     -title = 'Create Staffs'
+//-     -bodyClass = 'create-staffs'
+//-     -Data = reqData
+//-     block container 
+//-       form.form(action='#' method='method')
+//-         .form-group
+//-           span.from_user FROM
+//-           span.from_full_name #{Data.from_user.full_name}
+//-           span#from_id #{Data.from_user._id} 
+//-           span#from_peer_id ...
+//-           hr
+//-           video#from_video
+//-           hr
+//-           video#to_video
+//-           hr
+//-           span.to_user TO
+//-           button#from_call_start(type='button') Call Video
+//-           span.to_full_name #{Data.to_user.full_name}
+//-           span#to_id #{Data.to_user._id}
+//-           span#to_peer_id ...
+//-           label(for='email') Enter your message 
+//-           input.form-control(name='message' placeholder='Message' required) 
+//-         button#button(type='submit' value='submit') Send Message
+
+//- script(src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+//-     integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+//-     crossorigin="anonymous") 
+//- script(src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js")
+
+//- script(src="../../scripts/chat.js") 
+//- extend ../layouts/layout
+

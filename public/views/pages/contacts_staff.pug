@@ -1,0 +1,59 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Staffs'
+  -bodyClass = 'wrappper'
+  -Data = reqData
+block container 
+  .container1 
+    .product
+      .product-nav 
+        ul 
+          li.item Staffs
+          li.item Inventory
+          li.item Category
+      .line
+      .content
+        h2 Staffs
+        //- .content-nav
+        //-   a(href='/contacts/create-staffs')
+        //-     button Create Staff
+        //-   button#ButtonExport Export
+        //-   button Action
+      .line
+      //- +toogleStatus
+      table.table.tableStaffs#tableProduct 
+        tr
+          th Avatar
+          th Full Name
+          th Email
+          th Role
+          //- th Mail
+          th Chat
+          //- th Status
+          
+        each data in Data ? Data : []
+          tr
+            td 
+              if `${data.avatar_url}` === '' 
+                img(src='./images/bg01.jpg', alt="", srcset="").img.avatar
+              else 
+                img(src=`${data.avatar_url}`, alt="avatar").img.avatar
+            td= data.full_name
+            td= data.email
+            td= data.role == '0' ? 'Staff' : 'Manager'
+            //- td 
+            //-   a(href=`/chat/${data._id}`)
+            //-     i.fa-solid.fa-envelope.mail
+            td 
+              a(href=`/chat/?idChat=${data._id}`)
+                i.fa-solid.fa-comment-dots.chat
+            //- td
+            //-   if `${data.status}` == 1 
+            //-     +toogleStatusUnLock(data._id)
+            //-   else 
+            //-     +toogleStatusLock(data._id)
+            td= data._id
+            
+block append scripts 
+  script(src="../../scripts/contact.js")

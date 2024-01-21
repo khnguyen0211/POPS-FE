@@ -1,0 +1,23 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Verifi Error'
+  -bodyClass = 'settings'
+//-   -Data = reqData
+
+block container 
+  .container1 
+    .paymnent-error
+      i.fa-solid.fa-circle-exclamation
+      h1 Verifi error!
+      h2 Your verifi has failed. Your verification email has expired!
+      a.box__button(href='about:blank') Back
+
+block append scripts 
+  script(src="../../scripts/product.js") 
+
+    
+
+
+
+  

@@ -1,0 +1,45 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Detail Staffs'
+  -bodyClass = 'staffs'
+  -Data = reqData
+block append head 
+  script(src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js") 
+
+block container 
+  .container
+    .information 
+      .information-card 
+        .information-card-header 
+          if (Data.avatar_url)
+            img(src=`${Data.avatar_url}`, alt="Avatar")
+          else 
+            img(src="../../images/bg01.jpg" alt="")
+        .line
+        .information-card-content 
+          span #{Data.full_name}        
+      ul.information-detail
+        li.information-upload-images #{Data.email}
+      
+    .main-layout-card 
+      #profile-pages
+        h1 Staff Records  
+        //- include ../blocks/block_profile
+        .line
+        .chart 
+          canvas(width="400" height="150" id='chartStaff' aria-label="Hello ARIA World")
+        .chart-list-product.table-list-detail
+          table.table-list-product.table
+            tr
+              th Code
+              th Total
+              th Customer
+              th Methods
+              th Discount 
+              th Created_at
+             
+
+block append scripts 
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.0/chart.umd.js") 
+  script(src="../../scripts/detail_staffs.js") 

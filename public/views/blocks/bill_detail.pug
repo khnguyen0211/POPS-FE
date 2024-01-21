@@ -1,0 +1,77 @@
+.add-products
+    .modal
+        .modal-content-product 
+            .sale-modal
+                .sale-detail#sale-detail 
+                    h3 Sales detail
+                    img(src="../../images/Logo.png" alt="alt")
+                    h2 Viet Nam POPS
+                    .text-center 
+                        small#date 23/11/2023
+                        small Sales 
+                        small Sales Receipt
+                        //- small Sold By: John Doe
+                        small#customer_name Customer: Customer
+                    .table-detail 
+                        table
+                            tbody 
+                                tr 
+                                    th Product Name 
+                                    th Quantity
+                                    th Price 
+                                    th Total 
+                                .line
+                            tfoot 
+                                tr 
+                                    td
+                                        .line 
+                                    td
+                                        .line  
+                                    td
+                                        .line 
+                                    td
+                                        .line
+                                tr 
+                                    td Total
+                                    td 
+                                    td 
+                                    td#cart-payment-total3 0.0 $
+                                tr 
+                                    td VAT
+                                    td 
+                                    td 
+                                    td 10 %
+                                tr 
+                                    td Voucher
+                                    td 
+                                    td 
+                                    td#span_voucher 0 $
+                                tr 
+                                    td Due
+                                    td 
+                                    td 
+                                    td#cart-payment-due 0.0 $
+                    .buttonPrint(onclick='printBill()')
+                        i.fa-solid.fa-print
+                        h3 Print Receipt 
+                .sale-payment
+                    i.fa-solid.fa-x#turnOffAddProduct
+                    .sale-payment-head 
+                        h3 Total
+                        h3#cart-payment-total2 0.0 $
+                        h3 Payment Methods
+                    .sale-method 
+                        .sale-method-item(onclick='appearCash()')
+                            i.fa-solid.fa-wallet
+                            h4 Cash
+                        .sale-method-item(onclick='appearQR()')
+                            i.fa-solid.fa-qrcode
+                            h4 QR code           
+                    .sale-payment-body 
+                        label(for='payment') Payment
+                        input.form-control.form-payment(type='number' id='payment' name='payment' placeholder='Payment')
+                        .buttonPayment#payMent   
+                            i.fa-regular.fa-credit-card
+                            h3 Add Payment
+                    img(src="", alt="Loading QR" id="QRcode")
+                    a(href="" id="aQRcode" target="_blank") or Pay here

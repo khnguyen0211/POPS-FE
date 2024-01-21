@@ -1,0 +1,23 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Payment success'
+  -bodyClass = 'settings'
+//-   -Data = reqData
+
+block container 
+  .container1 
+    .paymnent-success 
+      i.fa-regular.fa-circle-check
+      h1 Payment success!
+      h2 Your payment was successfully completed.
+      a.box__button(onclick="window.close();") Continue
+
+block append scripts 
+  script(src="../../scripts/success.js") 
+
+    
+
+
+
+  

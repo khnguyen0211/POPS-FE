@@ -1,0 +1,25 @@
+body{
+    margin: 0px;
+    font-family: $rimary-font;
+    line-height: 1;
+    font-size: 1.4rem;
+}
+span,
+label,
+button{
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

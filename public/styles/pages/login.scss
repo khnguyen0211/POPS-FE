@@ -1,0 +1,50 @@
+@import "../components/buttons";
+
+// form login
+.modal_index{
+    // width: 35rem;
+    height: 46rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 45px;
+    background-color: $background-login;
+    margin-top: 6rem;
+    padding: 16px 24px 50px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px 8px rgb(221, 221, 221);
+    
+    &_content{
+        width: 350px;
+        background-color: white;
+        line-height: 1;
+        h3 {
+           font-size: 25px; 
+        }
+        p{
+            font-weight: bold;
+        }
+        &-register{
+            padding-bottom: 5rem;
+        }
+    }
+    
+}
+@media screen and (min-width: 1900px) {
+    .modal_index{
+        position: relative;
+        right: 20px;
+        margin-top: 20rem;
+    }
+    .swiper {        
+        width: 1370px;
+    }
+}
+@media only screen and (max-width: 1020px) {
+    /* Đặt kiểu cho màn hình dọc của iPad */
+    .slider {
+      display: none;
+    }
+  }
+  
+

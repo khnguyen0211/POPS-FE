@@ -1,0 +1,65 @@
+extend ../layouts/layout
+
+append head 
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js") 
+  script(type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js") 
+block vars 
+  -title = 'Sales'
+  -bodyClass = 'sales'
+  -Data = reqData 
+block container 
+  .container1 
+    include ../blocks/bill_detail
+    include ../blocks/add_customer
+    .sale 
+      .show-product 
+        .cart-FindCustomer.sticky 
+          .icon-FindCustomer
+            i.fa-solid.fa-laptop-code.icon-user 
+          .form-FindCustomer 
+            input.form-FindCustomer(type='text' id='form-SearchProduct' name='product' placeholder='Search Product' autocomplete="on" onkeydown='searchProduct(event)')
+          .button-FindCustomer
+            i.fa-solid.fa-magnifying-glass.icon-find
+        ul.list-card 
+          each data in Data ? Data : []
+            li.list-card-item 
+              a(class=`${data._id}`)#add_product
+                //- img(src="../../images/bg01.jpg", alt="alt")
+                p#product_id #{data._id}
+                img(src=`${data.image_urls}`, alt=`image of ${data._id}`).row
+                h4.row#product_name #{data.product_name}
+                strong.row#retail_price #{data.retail_price} $ 
+                br
+                span #{data.quantity.toLocaleString()} available <br>
+
+      .cart#cart
+        .cart-FindCustomer 
+          .icon-FindCustomer
+            i.fa-solid.fa-user-tie.icon-user 
+          .form-FindCustomer 
+            input.form-FindCustomer(type='text' id='form-FindCustomer' name='customer' placeholder='Search Customer 0767..' autocomplete="on" onkeydown='searchCustomer(event)' )
+          .button-FindCustomer#add-customer 
+            i.fa-solid.fa-user-pen.icon-find
+        .list-FindCustomer
+          ul.list-FindCustomer-select
+        .cart-warp#cart-warp-id
+          
+        .cart-payment 
+          .cart-payment-detail.voucher
+            form(action="")#voucher
+              label(for="voucher") 
+                h4 Voucher
+                  i.fa-solid.fa-gift
+              input(type="text" placeholder="Enter voucher")#voucher_value
+             
+          .cart-payment-detail 
+            h3 Total 
+            h3#cart-payment-total 0.0 $
+          .buttonPayment#addProducts
+            i.fa-regular.fa-credit-card 
+            h3 Payment
+
+block append scripts 
+  script(src="../../scripts/sale.js") 
+  script(src="../../scripts/bill_detail.js") 
+  script(src="../../scripts/customer.js") 

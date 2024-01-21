@@ -1,0 +1,31 @@
+block mixins 
+    include ../blocks/mixins.pug
+block vars 
+    -title = 'Forgot Password'
+    -bodyClass = 'wrappper'
+
+doctype html
+html(lang="en")
+  head
+    title=title 
+    include ../blocks/head
+  body(class = bodyClass)
+    block container 
+      .modal
+        .modal-content
+          h3 Forgot password!
+          p For security, please sign in to access your information
+          form.form(action='#' method='method')
+            .form-group
+              label(for='email') Email
+              input.form-control(type='email', name='email' placeholder='Email' required)
+            .other
+              a.other-create(href='/register') Create account
+            button.button(type='submit' value='submit') Sign In
+    block foot
+      include ../blocks/footer
+   
+   
+      
+  
+

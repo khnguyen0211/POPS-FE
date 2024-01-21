@@ -1,0 +1,25 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Create Staffs'
+  -bodyClass = 'create-staffs'
+  -Data = reqData
+
+block container 
+  .container1
+    .modal-create
+      .modal-content
+        h3 Create Staff
+        p For security, please sign in to access your information
+        form.form(action='/' method='method')#formLogin
+          .form-group
+            label(for='full_name') Full Name
+            input.form-control(type='text' id='full_name' name='full_name' placeholder='Full Name')
+            span.form-message
+          .form-group
+            label(for='email') Email
+            input.form-control(type='email' id='email' name='email' placeholder='Email')
+            span.form-message
+          button.button Create Staff
+block append scripts 
+  script(src="../../scripts/create_staffs.js") 

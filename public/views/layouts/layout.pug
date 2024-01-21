@@ -1,0 +1,23 @@
+block mixins 
+  include ../blocks/mixins.pug
+
+block vars 
+  -title = ''
+  -bodyClass = ''
+
+doctype html
+html(lang="en")
+  block head
+    title=title 
+    include ../blocks/head
+  body(class = bodyClass) 
+    include ../blocks/sidebar
+    +header(title)
+    block container   
+    block scripts
+      script(src="../../scripts/logout.js")
+    
+    
+    
+  
+

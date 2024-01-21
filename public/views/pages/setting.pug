@@ -1,0 +1,15 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Settings'
+  -bodyClass = 'settings'
+  -Data = reqData
+
+block container 
+  .container1 
+    include ../blocks/table_product
+    //- include ../blocks/add_product
+    include ../blocks/bill_detail
+
+block append scripts 
+  script(src="../../scripts/product.js") 

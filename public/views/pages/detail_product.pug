@@ -1,0 +1,88 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Detail Products'
+  -bodyClass = 'products'
+  -Data = reqData
+block append head 
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.js") 
+  //- script(src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js") 
+  script(src="../../scripts/barcode.js") 
+block container 
+  .container1 
+    include ../blocks/update_product
+    .product-detail
+      .product-nav 
+      .content
+        h3.product-name Product Name
+        //- .content-nav
+        //-     button Action
+      .line
+      .product-warper 
+        .product-image 
+          if Data
+            img(src=`${Data.image_urls}`, alt="alt")
+          else 
+            img(src="../../images/bg01.jpg", alt="alt")
+        .product-left 
+          table.table-detail-product 
+            tr 
+              th Product Name
+              td= Data.product_name
+            tr 
+              th Description
+              td= Data.description
+            tr 
+              th Brand
+              td= Data.brand
+            tr 
+              th Import_price
+              td= Data.import_price
+            tr 
+              th Retail_price
+              td= Data.retail_price
+            tr 
+              th category
+              td= Data.category
+            tr 
+              th Barcode
+              td= Data.barcode
+            //- tr 
+            //-   th Barcode
+            //-   td
+            //-     svg(
+            //-       class="barcode"
+            //-       jsbarcode-format="upc"
+            //-       jsbarcode-value="123456789012"
+            //-       jsbarcode-textmargin="0"
+            //-       jsbarcode-fontoptions="bold"
+            //-     )
+            tr 
+              th Quantity
+              td= Data.quantity
+            tr 
+              th Status
+              td= Data.status
+            tr 
+              th Id
+              td#idProduct= Data._id
+            tr 
+              th Created At
+              td= Data.created_at.split('T')[0]
+            tr 
+              th 
+              td 
+                .button1#addProducts
+                  button.btn-update Update product
+
+block append scripts 
+  script(src="../../scripts/product.js") 
+  script(src="../../scripts/product_list.js") 
+  script(src="../../scripts/detail_product.js") 
+  
+
+    
+
+
+
+  

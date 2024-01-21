@@ -1,0 +1,141 @@
+@import "../components/buttons";
+.header {
+  min-height: 7rem;
+  background: rgb(45, 47, 62);
+  margin-left: 150px;
+
+  &-nav {
+    &-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    margin: 1rem;
+    img {
+      height: 5rem;
+      width: 5rem;
+    }
+    &-item {
+      padding: 1rem;
+    }
+  }
+  &-menu {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    &-item {
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+      padding-bottom: 0.8rem;
+      margin-right: 5rem;
+      border-bottom: 3px transparent;
+      transition: all 0.2s linear;
+    }
+    &-item:hover {
+      border-bottom: 3px solid rgb(185, 104, 192);
+    }
+  }
+  &-profile {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    position: relative;
+    cursor: pointer;
+    padding-left: 5rem;
+    img {
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &-button {
+    margin-top: 10px;
+    &-login {
+      @include button1(90px, 25px, white);
+    }
+    &-register {
+      color: white;
+      @include button1(90px, 25px, rgb(132, 62, 113));
+      margin-left: 34px;
+    }
+  }
+}
+.dropdown{
+  position: absolute;
+  z-index: 100;
+  top: 7rem;
+  min-width: 20rem;
+  right: 1rem;
+  box-shadow: 1px 1px 8px 4px rgb(221, 221, 221);
+  padding: 1rem;
+  background-color: $white-color;
+  //animation
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s linear;
+  &-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    a {
+      display: flex;
+    }
+    img {
+      height: 7rem;
+      width: 7rem;
+    }
+    i{
+      margin: 0px 1.5rem;
+    }
+  }
+  &-item:not(:first-child){
+    height: 4rem;
+  }
+  &-item:not(:first-child):hover{
+    height: 4rem;
+    background-color: $background-hover;
+    -webkit-transition: all 0.5s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+    transition: all 0.5s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+    a{
+      color: white;
+    }
+  }
+  .name{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #998d59;
+    padding-bottom: 1rem;
+    span{
+      font-size: large;
+      font-weight: 600;
+      padding-left: 1rem;
+    }
+  }
+  
+}
+.dropdown::before{
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $background-hover;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translate(80%, -100%);
+  opacity: 1;
+}
+.header-profile:hover .dropdown{
+  opacity: 1;
+  visibility: visible;
+  background-color: $white-color;
+  // background-color: $primary-color;
+}

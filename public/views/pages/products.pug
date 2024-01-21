@@ -1,0 +1,21 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Products'
+  -bodyClass = 'products'
+  -Data = reqData
+
+block container 
+  .container1 
+    include ../blocks/table_product
+    include ../blocks/add_product
+
+block append scripts 
+  script(src="../../scripts/product_list.js") 
+  script(src="../../scripts/product.js") 
+
+    
+
+
+
+  

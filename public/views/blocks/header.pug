@@ -1,0 +1,23 @@
+block vars
+  -Data = reqData 
+  -data = Data
+ 
+header.header
+  nav.header-nav 
+    .container.header-nav-container
+      a.header-logo(href='/Dashboard')
+        //- img(src="./images/Logo.png", alt="Logo")
+        span.header-logo-item #{pages}
+      ul.header-menu
+        li
+          a.header-menu-item(href='/') Home
+      .header-button
+        a.header-button-login(href='/login') Login 
+        a.header-button-register(href='/register') Register
+      a.header-profile 
+        img(src=`${Data}`, alt="")
+        
+      
+    
+          
+      

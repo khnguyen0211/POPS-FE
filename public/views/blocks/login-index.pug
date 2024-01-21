@@ -1,0 +1,22 @@
+.modal_index
+    .modal_content
+        h3 Sign In 
+        p For security, please sign in to access your information
+        form.form(action='/')#formLogin
+            .form-group
+                label(for='username') User Name
+                input.form-control(type='text' id='username' name='username' placeholder='User Name' required)
+                span.form-message
+            .form-group
+                label(for='password') Password
+                input.form-control(type='password' id='password' name='password' placeholder='Password' required)
+                span.form-message
+            .other
+                a.other-create(href='/') Create account
+                .forgot 
+                    i.other-forgot.fa-solid.fa-lock
+                    a.other-forgot(href='/') Forgot password?                
+            button.button(type='submit') Sign In
+            <button type="button" class="login-with-google-btn text-center">
+                <a id="login-with-google">Sign in with Google</a>
+            </button>

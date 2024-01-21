@@ -1,0 +1,32 @@
+block mixins 
+  include ../blocks/mixins.pug
+block vars 
+  -title = 'Site'
+  -bodyClass = ''
+doctype html
+html(lang="en")
+  head
+    title=title 
+    include ../blocks/head
+    link(rel="icon" href="../../images/Logo-icon.png", type = "image/x-icon")
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css')
+    script(src='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js')
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js") 
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11") 
+  
+  
+  body(class = bodyClass)
+    block container 
+    block scripts
+      script(src="./scripts/slider.js") 
+      script(src="./scripts/validator.js") 
+      script(src="./scripts/validate.js") 
+      script(src="./scripts/login.js")
+      script(src="./scripts/index.js")
+      
+    //- script(type="importmap", src="") 
+    script(type="module"  src="./scripts/animation.js")
+
+
+
+

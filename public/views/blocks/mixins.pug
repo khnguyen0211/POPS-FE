@@ -1,0 +1,65 @@
+block vars 
+    -Data = reqData 
+
+mixin header(pages)
+    header.header
+        nav.header-nav 
+            .header-nav-container
+                a.header-logo(href='')
+                    span.header-logo-item #{pages}
+                .header-menu
+                    a.header-menu-item(href='/sales') Home
+                .header-profile
+                    - try {
+                        if (Data.persion)
+                            img(src=`${Data.persion}`, alt="Name").dropdown-sellect 
+                        else if (Data.avatar_url)
+                            img( src=`${Data.avatar_url}`, alt="" srcset="").dropdown-sellect                        
+                        else 
+                            img( src=`${Data.persion}`, alt="" srcset="").dropdown-sellect
+                    - ;} catch { 
+                        img(src="../../images/bg01.jpg" alt="").dropdown-sellect
+                        //- img(src=`${Data}`, alt="" srcset="").dropdown-sellect
+                    - }
+                    ul.dropdown
+                        li.dropdown-item.name
+                            - try {
+                                if (Data.persion)
+                                    img(src=`${Data.persion}`, alt="Name").dropdown-sellect 
+                                else if (Data.avatar_url)
+                                    img( src=`${Data.avatar_url}`, alt="" srcset="").dropdown-sellect                        
+                                else
+                                    img(src=`${Data}`, alt="" srcset="").dropdown-sellect
+                            - ;} catch { 
+                                img(src="../../images/bg01.jpg" alt="")
+                            - }
+                        li.dropdown-item.myProfile
+                            a(href='/profile').dropdown-item
+                                <i class="fa-regular fa-user"></i>
+                                span MyProfile
+                        li.dropdown-item.logout 
+                            a()#logout.dropdown-item
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                span Logout
+
+mixin toogleStatusUnLock(_id) 
+    #statusStaff
+        label.toggle-switch
+            input#toggle-button(type='checkbox' checked class=`${_id}`)
+            span.slider 
+
+mixin toogleStatusLock(_id) 
+    #statusStaff
+        label.toggle-switch
+            input#toggle-button(type='checkbox' class=`${_id}`)
+            span.slider 
+
+//- mixin avatarImages()
+//-     - try {
+//-         if (Data.persion)
+//-             img(src=`${Data.persion}`, alt="Name").dropdown-sellect 
+//-         else
+//-             img(src=`${Data}`, alt="" srcset="").dropdown-sellect
+//-     - ;} catch { 
+//-         img(src="../../images/bg01.jpg" alt="")
+//-     - }

@@ -1,0 +1,109 @@
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     title=title 
+//-     include ../blocks/head
+//-   body(class = bodyClass)
+//-     block vars 
+//-     -title = 'Create Staffs'
+//-     -bodyClass = 'create-staffs'
+//-     -Data = reqData
+//-     block container 
+//-       form.form(action='#' method='method')
+//-         .form-group
+//-           span.from_user FROM
+//-           span.from_full_name #{Data.from_user.full_name}
+//-           span#from_id #{Data.from_user._id} 
+//-           span#from_peer_id ...
+//-           hr
+//-           video#from_video
+//-           hr
+//-           video#to_video
+//-           hr
+//-           span.to_user TO
+//-           button#from_call_start(type='button') Call Video
+//-           span.to_full_name #{Data.to_user.full_name}
+//-           span#to_id #{Data.to_user._id}
+//-           span#to_peer_id ...
+//-           label(for='email') Enter your message 
+//-           input.form-control(name='message' placeholder='Message' required) 
+//-         button#button(type='submit' value='submit') Send Message
+
+//- script(src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+//-     integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+//-     crossorigin="anonymous") 
+//- script(src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js")
+
+//- script(src="../../scripts/chat.js") 
+extend ../layouts/layout
+
+block vars 
+  -title = 'Chat'
+  -bodyClass = 'chat'
+  -Data = reqData
+block append head
+  //- link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet')
+  //- link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet')
+  //- link(href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css' rel='stylesheet')
+  //- link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css' integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+  script(src='https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js')
+block container   
+  .container1 
+    //- section.container-media(style='background-color: #cdc4f9')
+    .container123.py-5
+      .row
+        .col-md-12
+          #chat3.card(style='border-radius: 15px')
+            .card-body
+              .row
+                .col-md-6.col-lg-5.col-xl-4.mb-4.mb-md-0.list-user
+                  .p-3
+                    .input-group.rounded.mb-3
+                      input.form-control.rounded(type='search' placeholder='Search' aria-label='Search' aria-describedby='search-addon')
+                      span#search-addon.input-group-text.border-0
+                        i.fas.fa-search
+                    div(data-mdb-perfect-scrollbar='true' style='\
+                    position: relative;\
+                    height: 400px;\
+                    overflow-y: scroll;\
+                    ')
+                      ul#users_list.list-unstyled.mb-0
+                        li.p-2.border-bottom
+                          a.d-flex.justify-content-between(href='#!')
+                            .d-flex.flex-row
+                              div
+                                img.d-flex.align-self-center.me-3(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp' alt='avatar' width='60')
+                              .pt-1
+                                p.fw-bold.mb-0.d-flex.justify-content-between
+                                  | Marie Horwitz
+                    #emoji_select.emoji
+                .col-md-6.col-lg-7.col-xl-8
+                  form#chat-form
+                    .pt-3.pe-3.chat-messages(data-mdb-perfect-scrollbar='true' style='\
+                    position: relative;\
+                    height: 400px;\
+                    overflow-y: scroll;\
+                    ')
+                      .d-flex.flex-row.justify-content-start
+                        img(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp' alt='avatar 1' style='width: 45px; height: 100%')
+                        div
+                          p.small.p-2.ms-3.mb-1.rounded-3(style='background-color: #f5f6f7')
+                            | Hi everyone!
+                          p.small.ms-3.mb-3.rounded-3.text-muted.float-end
+                            | 12:00 PM | Aug 13
+                    .text-muted.d-flex.justify-content-start.align-items-center.pe-3.pt-3.mt-2
+                      img(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp' alt='avatar 3' style='width: 40px; height: 100%')
+                      input#msg.form-control.form-control-lg.me-3(type='text' placeholder='Enter message' autocomplete='off')
+                      a.ms-1.text-muted
+                        i#mic.fa-solid.fa-microphone
+                      a.ms-3.text-muted
+                        i#emoji.fas.fa-smile
+                      button.ms-3.btn.btn-outline-info(href='#!')
+                        i.fas.fa-paper-plane.btnChat
+block append scripts 
+  script(src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+    integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+    crossorigin="anonymous") 
+  script(src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js")
+
+  script(src="../../scripts/chat.js") 

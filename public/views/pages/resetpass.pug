@@ -1,0 +1,33 @@
+//- block mixins 
+//-     include ../blocks/mixins.pug
+block vars 
+    -title = 'Confirm Password'
+    -bodyClass = 'confirm_password'
+    -data = reqData
+doctype html
+html(lang="en")
+  head
+    title=title 
+    include ../blocks/head
+  body(class = bodyClass)
+    block container 
+      .modal
+        .modal-content.reset-pass
+          span(id = 'access_token') #{data}
+          h3() Confirm Password
+          p For security, please sign in to access your information
+          form.form()#formLogin
+            .form-group
+              label(for='password') Password
+              input.form-control(type='password',id='password', name='password' placeholder='Password')
+              span.form-message
+            .form-group
+              label(for='confirm_password') Confirm Password
+              input.form-control(type='password',id='confirm_password', name='confirm_password' placeholder='Confirm Password')
+              span.form-message
+            button.button(type='submit' value='login') Sign In
+    block append script
+      script(src="../../scripts/resetpass.js") 
+   
+  
+

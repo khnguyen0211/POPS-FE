@@ -1,0 +1,35 @@
+#contentToPrint {
+  background-color: lightgray;
+  padding: 20px;
+}
+
+/* CSS cho in */
+@media print {
+  body {
+    margin: 0;
+    text-align: center; /* Đảm bảo không có đường viền trang in mặc định */
+  }
+
+  #contentToPrint {
+    background-color: white; /* Thay đổi màu nền khi in */
+    padding: 10px;
+  }
+  img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  .text-center {
+    display: flex;
+    flex-direction: column;
+  }
+  .table-detail table {
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+  }
+}

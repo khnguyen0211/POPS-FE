@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    title Confirm Password
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&amp;family=Poppins:wght@300;400;500;700&amp;family=Roboto:ital,wght@0,300;0,500;1,400&amp;display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
+    link(rel="stylesheet", href="../../css/style.css")
+    link(rel="icon", href="../../images/Logo-icon.png", type="image/x-icon")
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@11").
+      
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js").
+      
+    script(src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js").
+      
+  body(class="confirm_password")
+    .modal
+      .modal-content
+        span(id="access_token")
+        h3 Confirm Password
+        p For security, please sign in to access your information
+        form#formLogin.form
+          .form-group
+            label(for="password") Password
+            input#password.form-control(type="password", name="password", placeholder="Password")
+            span.form-message
+          .form-group
+            label(for="confirm_password") Confirm Password
+            input.form-control(type="confirm_password", id="confirm_password", name="confirm_password", placeholder="Confirm Password")
+            span.form-message
+          button.button(type="submit", value="login") Sign In
+    script(src="./scripts/resetpass.js").
+      

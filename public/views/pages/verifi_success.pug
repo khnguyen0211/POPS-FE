@@ -1,0 +1,23 @@
+extend ../layouts/layout
+
+block vars 
+  -title = 'Verifi success'
+  -bodyClass = 'settings'
+//-   -Data = reqData
+
+block container 
+  .container1 
+    .paymnent-success 
+      i.fa-regular.fa-circle-check
+      h1 Verifi success!
+      h2 Your verifi was successfully completed.
+      a.box__button(href='/') Continue
+
+block append scripts 
+  script(src="../../scripts/product.js") 
+
+    
+
+
+
+  

@@ -1,0 +1,30 @@
+.swiper {
+  position: relative;
+  left: -18px;
+  background: #eee;
+  font-size: 14px;
+  color: #000;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 910px;
+  // margin-right: 0px;
+  &-slide {
+    transform: scaleY(1);
+    position: absolute;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
